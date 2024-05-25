@@ -1,0 +1,19 @@
+***inverter***
+.subckt inv vin out vdd gnd
+M0 out VIN vdd VDD p_18 W=1u L=0.18u
+M1 out vin gnd gnd n_18 w=0.5u L=0.18u 
+.ends
+***nand***
+.subckt nand a b vdd gnd out
+m0 out a vdd vdd p_18 w=1u l=0.18u
+m1 out b vdd vdd p_18 w=1u l=0.18u
+m2 out a k gnd n_18 w=0.5u l=0.18u
+m3 k b gnd gnd n_18 w=0.5u l=0.18u 
+.ends
+***nor***
+.subckt nor c d vdd gnd out
+m0 k c vdd vdd p_18 w=1u l=0.18u
+m1 out d k vdd p_18 w=1u l=0.18u
+m2 out d gnd gnd n_18 w=0.5u l=0.18u
+m3 out c gnd gnd n_18 w=0.5u l=0.18u
+.ends

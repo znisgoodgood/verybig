@@ -1,0 +1,6 @@
+***halfadder***
+.inc"xor.spi"
+.subckt halfadder x y s c vdd gnd
+Xxor x y s xb yb vdd gnd  xor
+Xnor xb yb vdd gnd c nor
+.ends

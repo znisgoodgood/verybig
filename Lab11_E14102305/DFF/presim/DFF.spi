@@ -1,0 +1,21 @@
+***DFF***
+.inc"circuit.spi"
+.subckt DFF clk D reset Q QX VDD GND
+X1 clk reset w x VDD GND NAND3
+X2 x clk z y VDD GND NAND3
+X3 D reset y z VDD GND NAND3
+x4 Q y reset QX VDD GND NAND3
+X5 x z VDD GND w nand
+X6 x QX VDD GND Q nand  
+.ends
+***3nand***
+***nmos***
+.subckt NAND3 a b c out VDD GND
+M0 out a VDD VDD p_18 w=1u L=0.18u
+M1 out b VDD VDD p_18 w=1u L=0.18u
+M2 out c VDD VDD p_18 w=1u L=0.18u
+***pmos***
+M3 out a x GND n_18 w=0.5u L=0.18u
+M4 x b y GND n_18 w=0.5u L=0.18u
+M5 y c GND GND n_18 w=0.5u L=0.18u
+.ends

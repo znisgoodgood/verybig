@@ -1,0 +1,16 @@
+***xor***
+.inc "circuit.spi"
+.subckt xor x y f xb yb vdd gnd
+Xinv1 x xb vdd gnd inv
+Xinv2 y yb vdd gnd inv
+
+M1 w x vdd vdd p_18 w=1u l=0.18u
+M2 f yb w vdd p_18 w=1u l=0.18u
+M3 z xb vdd vdd p_18 w=1u l=0.18u
+M4 f y z vdd p_18 w=1u l=0.18u
+
+M5 f x a gnd n_18 w=0.5u l=0.18u
+M6 a xb gnd gnd n_18 w=0.5u l=0.18u
+M7 f yb a gnd n_18 w=0.5u l=0.18u
+M8 a y gnd gnd n_18 w=0.5u l=0.18u
+.ends
